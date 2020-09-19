@@ -25,7 +25,7 @@ pipeline {
         checkout scm
       }
     }
-    
+
     stage('Build & Say Hello World') {
       parallel {
         stage('Build') {
@@ -63,7 +63,7 @@ pipeline {
     //     build job: '/declarative-jenkins-PROD', wait: false
     //   }
     // }
-  }
+  // }
 
   post {
     always {

@@ -2,9 +2,8 @@ def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credential
 
 pipeline {
   agent {
-    docker {
-      dockerfile true
-      label 'docker'
+    dockerfile {
+      filename 'Dockerfile'
     }
   }
 
@@ -40,7 +39,7 @@ pipeline {
       }
     }
   }
-  
+
   post {
     always {
       cleanWs()

@@ -16,4 +16,4 @@ USER $USERNAME
 RUN npm config set prefix $SOURCE_DIR/.npm-global \
     && export PATH=$SOURCE_DIR/.npm-global:$PATH \
     && npm i -g aws-cdk typescript \
-    && npm i
+    && npm i -d

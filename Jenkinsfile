@@ -21,26 +21,15 @@ pipeline {
 
     stage('Get Code') {
       steps {
-        // Get some code from a GitHub repository
         checkout scm
       }
     }
 
-    stage('Build & Say Hello World') {
-      parallel {
         stage('Build') {
           steps {
             sh 'npm run build'
           }
         }
-
-    //     stage('Say Hello World') {
-    //       steps {
-    //         echo "${env.HELLO_WORLD_ENV_VAR}"
-    //       }
-    //     }
-    //   }
-    // }
 
     stage('Deploy') {
       steps {
@@ -48,26 +37,10 @@ pipeline {
       }
     }
 
-    // stage('Destroy') {
-    //   steps {
-    //     sh 'cdk destroy --require-approval=never'
-    //   }
-    // }
-
-    // stage('Trigger PROD Build') {
-    //   when {
-    //     branch 'master'
-    //   }
-
-    //   steps {
-    //     build job: '/declarative-jenkins-PROD', wait: false
-    //   }
-    // }
-  // }
-
-  post {
-    always {
-      cleanWs()
+    post {
+      always {
+        cleanWs()
+      }
     }
   }
 }

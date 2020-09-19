@@ -24,7 +24,7 @@ pipeline {
       }
     }
 
-    stage('Intall') {
+    stage('cdk') {
       steps {
         sh 'npm install -g aws-cdk'
       }

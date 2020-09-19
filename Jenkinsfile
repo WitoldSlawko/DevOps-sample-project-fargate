@@ -2,7 +2,7 @@ def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credential
 
 pipeline {
   agent {
-    label 'Master'
+    label 'master'
   }
 
   environment {

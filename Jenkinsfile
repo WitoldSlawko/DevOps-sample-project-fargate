@@ -34,7 +34,7 @@ pipeline {
 
     stage('ls node_modules') {
       steps {
-        sh 'ls node_modules'
+        sh 'ls'
       }
     }
 

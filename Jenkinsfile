@@ -26,6 +26,12 @@ pipeline {
       }
     }
 
+    stage('verify) {
+      steps {
+        sh 'node -v && npm -v && cdk -v'
+      }
+    }
+
     stage('Build and Synth') {
       steps {
         sh 'npm run build & cdk synth'

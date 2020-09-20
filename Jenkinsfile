@@ -26,9 +26,15 @@ pipeline {
       }
     }
 
+    stage('whoami') {
+      steps {
+        sh 'echo $USER && whoami'
+      }
+    }
+
     stage('verify') {
       steps {
-        sh 'node -v && npm -v && cdk -v'
+        sh 'npx -v node -v && npm -v && cdk -v'
       }
     }
 

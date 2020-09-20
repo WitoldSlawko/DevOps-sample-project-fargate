@@ -26,6 +26,12 @@ pipeline {
       }
     }
 
+    stage('docker') {
+      steps {
+        sh 'docker ps -q && docker container ls -q'
+      }
+    }
+
     stage('whoami') {
       steps {
         sh 'pwd'
@@ -40,19 +46,19 @@ pipeline {
 
     stage('verify') {
       steps {
-        sh 'npx -v node -v && npm -v && cdk -v'
+        sh 'npx -v node -v && npm -v && npm run cdk -v'
       }
     }
 
     stage('Build and Synth') {
       steps {
-        sh 'npm run build & cdk synth'
+        sh 'npm run build & npm run synth'
       }
     }
 
     stage('Deploy') {
       steps {
-        sh 'cdk deploy --require-approval=never'
+        sh 'npm run cdk deploy --require-approval=never'
       }
     }
   }
@@ -60,6 +66,7 @@ pipeline {
   post {
     always {
       cleanWs()
+      deleteDir()
     }
   }
 }

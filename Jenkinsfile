@@ -2,8 +2,8 @@ def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credential
 
 pipeline {
   agent {
-    dockerfile {
-      filename 'Dockerfile'
+    docker {
+      image 'node:lts-alpine'
     }
   }
 
@@ -26,12 +26,6 @@ pipeline {
       }
     }
 
-    stage('docker') {
-      steps {
-        sh 'docker ps -q && docker container ls -q'
-      }
-    }
-
     stage('whoami') {
       steps {
         sh 'pwd'
@@ -50,15 +44,9 @@ pipeline {
       }
     }
 
-    stage('verify') {
-      steps {
-        sh 'npx -v node -v && npm -v && npm run cdk -v'
-      }
-    }
-
     stage('Build and Synth') {
       steps {
-        sh 'npm run build & npm run synth'
+        sh 'npm run build & npm run cdk synth'
       }
     }
 

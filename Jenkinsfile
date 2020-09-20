@@ -2,7 +2,9 @@ def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credential
 
 pipeline {
   agent {
-    label 'master'
+    dockerfile {
+      filename 'Dockerfile'
+    }
   }
 
   environment {
@@ -24,27 +26,9 @@ pipeline {
       }
     }
 
-    stage('cdk') {
+    stage('Build and Synth') {
       steps {
-        sh 'npm install -g aws-cdk'
-      }
-    }
-
-    stage('Intall') {
-      steps {
-        sh 'npm install -d'
-      }
-    }
-
-    stage('Build') {
-      steps {
-        sh 'npm run build'
-      }
-    }
-
-    stage('synth') {
-      steps {
-        sh 'cdk synth'
+        sh 'npm run build & cdk synth'
       }
     }
 

@@ -44,6 +44,12 @@ pipeline {
       }
     }
 
+    stage('npm install -d') {
+      steps {
+        sh 'npm install -d'
+      }
+    }
+
     stage('verify') {
       steps {
         sh 'npx -v node -v && npm -v && npm run cdk -v'

@@ -26,7 +26,7 @@ pipeline {
       }
     }
 
-    stage('verify) {
+    stage('verify') {
       steps {
         sh 'node -v && npm -v && cdk -v'
       }

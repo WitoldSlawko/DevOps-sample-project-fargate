@@ -32,6 +32,12 @@ pipeline {
       }
     }
 
+    stage('ls node_modules') {
+      steps {
+        sh 'ls node_modules'
+      }
+    }
+
     stage('verify') {
       steps {
         sh 'npx -v node -v && npm -v && cdk -v'

@@ -2,7 +2,7 @@ FROM node:lts-alpine
 
 ENV SOURCE_DIR=/src
 ENV GROUPNAME=jenkins
-ENV USERNAME=jenkinsuser
+ENV USERNAME=jenkins
 
 COPY . $SOURCE_DIR
 WORKDIR $SOURCE_DIR

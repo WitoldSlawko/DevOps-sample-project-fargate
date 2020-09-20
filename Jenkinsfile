@@ -28,7 +28,7 @@ pipeline {
 
     stage('whoami') {
       steps {
-        sh 'echo $USER && whoami'
+        sh 'pwd'
       }
     }
 

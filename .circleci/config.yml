@@ -38,8 +38,8 @@ jobs:
         - setup_remote_docker:
             version: 18.06.0-ce
         - run: pwd
-        - run: ls -alt
-        - run: sudo dockerd
+        - run: ls -alt /var/run/
+        # - run: sudo dockerd
         # - run: ssh-docker ls -alt
         # - run: docker container ls -a
         # - run: echo "y" |  node ./node_modules/aws-cdk/bin/cdk.js deploy  --require-approval=never

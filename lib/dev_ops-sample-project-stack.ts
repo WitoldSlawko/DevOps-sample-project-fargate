@@ -14,7 +14,7 @@ export class DevOpsSampleProjectStack extends cdk.Stack {
     new ecs_patterns.ApplicationLoadBalancedFargateService(this, "FargateService", {
       cluster,
       taskImageOptions: {
-        image: ecs.ContainerImage.fromAsset(path.resolve(__dirname, 'app'))
+        image: ecs.ContainerImage.fromAsset(path.resolve(__dirname, 'application'))
       },
     });
 

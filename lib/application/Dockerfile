@@ -6,4 +6,4 @@ EXPOSE 80
 
 RUN npm install -d
 
-CMD node app.js
+CMD node express.js

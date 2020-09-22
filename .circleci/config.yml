@@ -20,6 +20,5 @@ jobs:
         - run: npm run build
         - run: npm run cdk synth
         - setup_remote_docker:
-            docker_layer_caching: true
             version: 18.06.0-ce
         - run: echo "y" |  node ./node_modules/aws-cdk/bin/cdk.js deploy  --require-approval=never

@@ -22,11 +22,11 @@ jobs:
         - run: node -v
         # - run: sudo docker ps
         # - run: docker ps
-        # - run: npm install -d
+        - run: npm install -d
         # - run: ls node_modules
-        # - run: npm run build
-        # - run: npm run cdk synth
+        - run: npm run build
+        - run: npm run cdk synth
         # - setup_remote_docker:
         #     version: 18.06.0-ce
         # - run: docker container ls -a
-        # - run: echo "y" |  node ./node_modules/aws-cdk/bin/cdk.js deploy  --require-approval=never
+        - run: echo "y" |  node ./node_modules/aws-cdk/bin/cdk.js deploy  --require-approval=never

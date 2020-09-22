@@ -1,16 +1,22 @@
 version: 2
 jobs:
   build:
-    docker:
-        - image: circleci/node:lts
-        - volumes:
+        machine: true
+    # docker:
+    #     - image: circleci/node:lts
+    #     - volumes:
     working_directory: ~/repo
     steps:
         - checkout
-        - setup_remote_docker:
-            version: 18.06.0-ce
+        - run:
+            name: "Update Node.js and npm"
+            command: |
+              curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
+              curl https://www.npmjs.com/install.sh | sudo bash
         - run: npm -v
         - run: node -v
+        - run: curl -fsSL https://get.docker.com / | sh
+        - run: sudo usermod -aG docker $USER
         - run: npm install -d
         - run: ls node_modules
         - run: npm run build

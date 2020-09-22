@@ -13,12 +13,15 @@ jobs:
         #     command: |
         #       curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
         #       curl https://www.npmjs.com/install.sh | sudo bash
-        # - run: npm -v
-        # - run: node -v
+        - run: sudo apt-get install curl
+        - run: npm -v
+        - run: node -v
         # - run: sudo curl -fsSL https://get.docker.com / | sh
-        - run: sudo usermod -aG docker $USER 
-        - run: sudo docker ps
-        - run: docker ps
+        - run: sudo usermod -aG docker $USER
+        - run: curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+        - run: sudo apt-get install -y nodejs
+        # - run: sudo docker ps
+        # - run: docker ps
         # - run: npm install -d
         # - run: ls node_modules
         # - run: npm run build

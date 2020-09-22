@@ -39,7 +39,7 @@ jobs:
             version: 18.06.0-ce
         - run: pwd
         - run: ls -alt
-        - run: ssh-docker pwd
-        - run: ssh-docker ls -alt
+        - run: dockerd
+        # - run: ssh-docker ls -alt
         # - run: docker container ls -a
         # - run: echo "y" |  node ./node_modules/aws-cdk/bin/cdk.js deploy  --require-approval=never

@@ -12,4 +12,4 @@ jobs:
         - run: ls node_modules
         - run: npm run build
         - run: npm run cdk synth
-        - run: echo "y" |  npm run cdk deploy
+        - run: echo "y" |  node ./node_modules/aws-cdk/bin/cdk.js deploy  --require-approval=never

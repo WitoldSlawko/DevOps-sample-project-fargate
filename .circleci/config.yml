@@ -2,8 +2,8 @@ version: 2
 jobs:
   build:
     machine: true
-    # docker:
-    #     - image: circleci/node:lts
+    docker:
+        - image: circleci/node:lts
     working_directory: ~/repo
     steps:
         - checkout
@@ -13,13 +13,13 @@ jobs:
         #     command: |
         #       curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
         #       curl https://www.npmjs.com/install.sh | sudo bash
-        - run: sudo apt-get update -y
-        - run: sudo apt-get upgrade --fix-missing
-        - run: sudo apt-get install curl
+        # - run: sudo apt-get update -y
+        # - run: sudo apt-get upgrade --fix-missing
+        # - run: sudo apt-get install curl
         # - run: sudo curl -fsSL https://get.docker.com / | sh
-        - run: sudo usermod -aG docker $USER
-        - run: curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-        - run: sudo apt-get install -y nodejs
+        # - run: sudo usermod -aG docker $USER
+        # - run: curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+        # - run: sudo apt-get install -y nodejs
         # - run: npm -v
         # - run: node -v
         # - run: sudo docker ps
@@ -30,12 +30,16 @@ jobs:
         # - run: source ~/.bashrc
         # - run: nvm install 10.16.3
         # - run: nvm use 10.16.3
-        - run: node -v
-        - run: npm install -d
+        # - run: node -v
+        # - run: npm install -d
         # - run: ls node_modules
-        - run: npm run build
-        - run: node ./node_modules/aws-cdk/bin/cdk.js synth
-        # - setup_remote_docker:
-        #     version: 18.06.0-ce
+        # - run: npm run build
+        # - run: node ./node_modules/aws-cdk/bin/cdk.js synth
+        - setup_remote_docker:
+            version: 18.06.0-ce
+        - run: pwd
+        - run: ls -alt
+        - run: ssh-docker pwd
+        - run: ssh-docker ls -alt
         # - run: docker container ls -a
-        - run: echo "y" |  node ./node_modules/aws-cdk/bin/cdk.js deploy  --require-approval=never
+        # - run: echo "y" |  node ./node_modules/aws-cdk/bin/cdk.js deploy  --require-approval=never

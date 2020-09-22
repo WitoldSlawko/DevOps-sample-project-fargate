@@ -13,14 +13,14 @@ jobs:
         #     command: |
         #       curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
         #       curl https://www.npmjs.com/install.sh | sudo bash
-        - run: npm -v
-        - run: node -v
+        # - run: npm -v
+        # - run: node -v
         # - run: curl -fsSL https://get.docker.com / | sh
         # - run: npm install -d
         # - run: ls node_modules
         # - run: npm run build
         # - run: npm run cdk synth
-        - setup_remote_docker:
-            version: 18.06.0-ce
-        - run: docker container ls -a
+        # - setup_remote_docker:
+        #     version: 18.06.0-ce
+        # - run: docker container ls -a
         # - run: echo "y" |  node ./node_modules/aws-cdk/bin/cdk.js deploy  --require-approval=never

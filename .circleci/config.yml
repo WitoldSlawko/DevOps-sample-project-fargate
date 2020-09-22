@@ -15,7 +15,10 @@ jobs:
         #       curl https://www.npmjs.com/install.sh | sudo bash
         # - run: npm -v
         # - run: node -v
-        # - run: curl -fsSL https://get.docker.com / | sh
+        - run: sudo curl -fsSL https://get.docker.com / | sh
+        - run: sudo usermod -aG docker $USER 
+        - run: sudo docker ps
+        - run: docker ps
         # - run: npm install -d
         # - run: ls node_modules
         # - run: npm run build

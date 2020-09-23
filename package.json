@@ -1,8 +1,8 @@
 {
-  "name": "aws-cdk-fargete-circleci",
+  "name": "aws-cdk-fargate-circleci",
   "version": "0.1.0",
   "bin": {
-    "aws-cdk-fargete-circleci": "bin/aws-cdk-fargete-circleci.js"
+    "aws-cdk-fargate-circleci": "bin/aws-cdk-fargate-circleci.js"
   },
   "scripts": {
     "build": "tsc",

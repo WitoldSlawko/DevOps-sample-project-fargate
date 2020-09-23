@@ -4,7 +4,7 @@ import ecs_patterns = require('@aws-cdk/aws-ecs-patterns');
 import cdk = require('@aws-cdk/core');
 import path = require('path');
 
-export class DevOpsSampleProjectStack extends cdk.Stack {
+export class AwsCdkFargateCircleci extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 

@@ -1,8 +1,8 @@
 {
-  "name": "dev_ops-sample-project",
+  "name": "aws-cdk-fargete-circleci",
   "version": "0.1.0",
   "bin": {
-    "dev_ops-sample-project": "bin/dev_ops-sample-project.js"
+    "aws-cdk-fargete-circleci": "bin/aws-cdk-fargete-circleci.js"
   },
   "scripts": {
     "build": "tsc",
